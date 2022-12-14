@@ -27,7 +27,7 @@
         \vfill
             
 TA name:
-Adebowale, Adeyemi
+Adebowale, Adeyemi 
 
             
         \vspace{0.8cm}
@@ -48,10 +48,9 @@ Cannabis markets are increasing \cite{Lab Manuel} in both Canada and the US.   I
 We then used metaboanalyst.ca to do the Pearson Correlation on the dataset. Then we used Python to analyze the dataset using PCA and SAM. We find that ~~~~
 
 \\ \textbf{Keywords: } Cannabis, Statistical Analysis, Dataset, Significance Analysis of Microarrays, Principal Component Analysis
-\newpage
 \section{Introduction}
 \includepdf[scale=0.8, offset=0 -2cm, pagecommand=\section{Materials and Methods} These process are based on \cite{Lab Manuel}. We converted the Excel file into a CSV file.]{main.pdf}
-\subsection*{AetaboanAlyst}
+\subsection*{MaetaboanAlyst}
 We used MetaboanAlyst for the rest of the data analytics.  We used the same dataset as we did in the last section. 
 
 
@@ -59,7 +58,17 @@ We used MetaboanAlyst for the rest of the data analytics.  We used the same data
     \item We uploaded the CSV file to AetaboanAlyst with one var statistical analytics with the data type of concentration and sample of "rows (unpaired)." 
     \item We then skipped the missing value filling.
     \item We then normalized the data with "auto-scaling"
-    \item In the statistical analysis model, 
+    \item In the statistical analysis model, we selected correlation. Then the website crashed. When I tried to reconnect, it said connection refused. It did go back for a while, but because of the unstableness, we moved on to using Python to do these analytics. 
+    \item We load the data into the Pandas data frame, since correlation is independent then normalization, we don't need to normalize our data in this step.
+    % then we calculate the mean and standard deviation, using which we normalized the data. 
+    \item We replaced all missing values with 0s and removed all columns with only 0
+    \item We got the correlation matrix using the built-in function as shown in \cite{pandaCo}, and we plotted the matrix using a heat map, as shown in figure 1.
+    \item We then highlighted the substances with high correlation ($p>0.8$ for positive correlation and $p<0.8$ for negative correlation), as shown in figure 2.
+    
+    % and got the following
+    % \includegraphics[scale=0.20]{output.png}
+    % \item We removed all NaN values, 
+    % \item Thus, we moved on to using Python to do these analytics. 
 \end{enumerate}
 
 
@@ -67,17 +76,20 @@ We used MetaboanAlyst for the rest of the data analytics.  We used the same data
 \section{Discussion}
 \begin{thebibliography}{9}
 \bibitem{Lab Manuel}
-
+Adeyemi Adebowale, Julia Solonenka, Stephanie Bishop, Ian Cole, Abisola Kehinde, Elizabeth Mudge, and Susan Murch. ANALYTICAL  CHEMISTRY  LAB MANUAL.
 
 \bibitem{dataset1}
 Mudge, E.M.; Brown, P.N.; Murch, S.J. The Terroir of Cannabis: Terpene Metabolomics as a Tool
  to Understand Cannabis Selections. Planta Medica. 2019. DOI: 10.1055/a-0915-2550
 
 \bibitem{dataset2}
-
 Mudge, E.M.; Murch, S.J.; Brown, P.N. Chemometric analysis of cannabinoids: chemotaxonomy
  and domestication syndrome. Scientific Reports. 2018. 8, 13090. DOI:10.1038/s41598
  018-31120-2 1. 
+
+ \bibitem{pandaCo}
+“How to Create a Correlation Matrix using Pandas – Data to Fish.” https://datatofish.com/correlation-matrix-pandas/ (accessed Dec. 13, 2022).
+
 \end{thebibliography}
 
 \end{document}
