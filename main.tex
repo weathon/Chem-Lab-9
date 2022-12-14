@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsthm}
+\usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{pdfpages}
 \begin{document}
@@ -45,10 +46,15 @@ Code and raw \LaTeX \; of this lab report can be found on \url{https://github.co
 \section*{Abstract}
 
 Cannabis markets are increasing \cite{Lab Manuel} in both Canada and the US.   In this paper, we analyzed the data set from the publication  \cite{dataset1} and \cite{dataset2} using various methods. This dataset contains the composition of 12 cannabis strains using HPLC-UV. \cite{Lab Manuel, dataset1, dataset2} We first did an ANOVA of different substances in different strains. 
-We then used metaboanalyst.ca to do the Pearson Correlation on the dataset. Then we used Python to analyze the dataset using PCA and SAM. We find that ~~~~
+We then used metaboanalyst.ca to do the Pearson Correlation on the dataset. Then we used Python to analyze the dataset using PCA and SAM. In ANOVA, most of the tests show a p-value less than 0.05,  We find that THCA contributed a lot for loading 1 and CMPD4 (this is an unknown) contributed a lot for Loading 2 in PCA. In the correlation analyze, we find that there are a few substances that are positively correlated to others, and we find no string of negative correlations in this analysis. This means these 2 compounds are important in cluster cannabis. 
 
-\\ \textbf{Keywords: } Cannabis, Statistical Analysis, Dataset, Significance Analysis of Microarrays, Principal Component Analysis
+
+\textbf{Keywords: } Cannabis, Statistical Analysis, Dataset, Significance Analysis of Microarrays, Principal Component Analysis
 \section{Introduction}
+Cannabis markets are increasing \cite{Lab Manuel} in both Canada and the US. The legal market in North America in 2021 is USD 12.4 billion, and this is rising. \cite{Market} Thus, understanding the composition of these is important for health professionals, governments, and consumers. HPLC (High-Performance Liquid Chromoptaphhy) is a method used to separate mixtures, and UV detection is commonly used to detect the  substances from HPLC in time serials. This data can then be converted to the concentration of each substance in the original sample. The correlation matrix is a method used to analyze if there are linear correlations between variables between a set of variables. PCA was commonly used to reduce the dimension of the data while keeping as much information as possible. It uses the singular vectors of the matrix. \cite{PCA} In a set of information, the higher the entropy, the more information it has. \cite{info} In the dataset, the higher the variance, the more information it contains. PCA is a linear transformation, by which the data scaler projection with the greatest variance will lie on the first dimension. \cite{PCA} In this paper, we analyzed the data using ANOVA, Coorelatonn, PCA (Principal Component Analysis), and SAM (Significance Analysis of Microarrays) \cite{SAM} on a dataset containing substances from 12 cannabis strains using HPLC-UV. \cite{dataset1} and \cite{dataset2}. \\
+Understanding the substances in cannabis is important for the government to make policies, for consumers to understand the potential health effects, and for medical workers and researchers to understand the public health related to cannabis products. In this paper, we will process the data and find out if each substance is present in different amounts in different classes of cannabis, if some substances are present along with other substances and if some will inhibit the presence of other substances, cluster different class using PCA, and "to reduce data complexity and identify key metabolites that are significant in sample classification." \cite{Lab Manuel}
+
+
 \includepdf[scale=0.8, offset=0 -2cm, pagecommand=\section{Materials and Methods} These process are based on \cite{Lab Manuel}. We converted the Excel file into a CSV file.]{main.pdf}
 \subsection*{MaetaboanAlyst}
 We used MetaboanAlyst for the rest of the data analytics.  We used the same dataset as we did in the last section. 
@@ -71,9 +77,63 @@ We used MetaboanAlyst for the rest of the data analytics.  We used the same data
     % \item Thus, we moved on to using Python to do these analytics. 
 \end{enumerate}
 
+\subsection*{Principal Component Analysis}
+(The website is working again, so this part is done using the website)
+\begin{enumerate}
+    \item We normalized the data, then in the stat section, we selected PCA with 2 PC.
+    \item We generated the 2D Scores Plot (Fig 3) and loading plot (Fig 4)
+    \item We downloaded the loading data as CSV and then plotted 2 bar plots using Python. (Fig 5 and 6)
+    \item We then analyze the plots and analyzing is in the Result section. 
+\end{enumerate}
+
+
+\subsection*{SAM}
+\begin{enumerate}
+    \item We selected the SAM in the stat section
+    \item We increased the delta value so that the False number is 0
+    \item We saved the figure as Fig 6
+    \item We then downloaded the CSV file of significant metabolites
+    \item We compared the result from SAM with ANOVA, the analysis is in the Result section
+\end{enumerate}
+
+\subsection*{Envirement for The code} 
+All the code was finished on getpod.io using the following parameter:
+\begin{itemize}
+    \item Python 3.8.13 [GCC 9.4.0] on Linux
+    \item NumPy 1.23.5
+    \item Pandas 1.5.2
+    \item Matplotlib 3.6.2
+\end{itemize}
 
 \section{Result}
+
+Figure 1. Correlation plot of all substances
+\centering
+\includegraphics[width=\textwidth]{output.png}
+
+We can see that THCA contributed a lot for loading 1 and CMPD4 (this is a unknown) contributed a lot for Loading 2. 
+
+We compared that 
+
+{Figure 2. Correlation plot of all substances with >0.8 or <-0.8 highlighted}
+\centering
+\includegraphics[wdith=\textwidth]{output2.png}
+
+{Figure 3. PCA Score Plot}
+\includegraphics[scale=0.1]{pca_score2d_1_dpi300.png}
+{Figure 4. PCA Loading Plot}
+\includegraphics[scale=0.1]{pca_loading_0_dpi300.png}
+{Figure 5}
+\centering
+\includegraphics{PC1.png}
+{Figure 6}
+\centering
+\includegraphics{PC2.png}
+
+
+
 \section{Discussion}
+
 \begin{thebibliography}{9}
 \bibitem{Lab Manuel}
 Adeyemi Adebowale, Julia Solonenka, Stephanie Bishop, Ian Cole, Abisola Kehinde, Elizabeth Mudge, and Susan Murch. ANALYTICAL  CHEMISTRY  LAB MANUAL.
@@ -89,6 +149,19 @@ Mudge, E.M.; Murch, S.J.; Brown, P.N. Chemometric analysis of cannabinoids: chem
 
  \bibitem{pandaCo}
 “How to Create a Correlation Matrix using Pandas – Data to Fish.” https://datatofish.com/correlation-matrix-pandas/ (accessed Dec. 13, 2022).
+
+\bibitem{PYPCA}
+“sklearn.decomposition.PCA,” scikit-learn. https://scikit-learn/stable/modules/generated/sklearn.decomposition.PCA.html (accessed Dec. 13, 2022).
+\bibitem{PCA}
+C. Cheng, “Principal Component Analysis (PCA) Explained Visually with Zero Math,” Medium, Mar. 22, 2022. https://towardsdatascience.com/principal-component-analysis-pca-explained-visually-with-zero-math-1cbf392b9e7d (accessed Dec. 13, 2022).
+\bibitem{info}
+“A Mathematical Theory of Communication,” Harvard, The Bell System Technical Journal. [Online]. Available: https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf
+\bibitem{SAM}
+V. G. Tusher, R. Tibshirani, and G. Chu, “Significance analysis of microarrays applied to the ionizing radiation response,” Proc. Natl. Acad. Sci. U.S.A., vol. 98, no. 9, pp. 5116–5121, Apr. 2001, doi: 10.1073/pnas.091062498.
+
+
+\bibitem{Market}
+“North America Legal Cannabis Market Size Report, 2030.” https://www.grandviewresearch.com/industry-analysis/north-america-legal-cannabis-market-report (accessed Dec. 13, 2022).
 
 \end{thebibliography}
 
