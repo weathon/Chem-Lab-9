@@ -1,4 +1,5 @@
 \documentclass{article}
+\usepackage[font=small,labelfont=bf]{caption}
 \usepackage[utf8]{inputenc}
 \usepackage{amsthm}
 \usepackage{graphicx}
@@ -107,28 +108,27 @@ All the code was finished on getpod.io using the following parameter:
 
 \section{Result}
 
-Figure 1. Correlation plot of all substances
+\captionof{figure}{Correlation plot of all substances}
 \centering
-\includegraphics[width=\textwidth]{output.png}
+\includegraphics[width=0.7\textwidth]{output.png}
 
-We can see that THCA contributed a lot for loading 1 and CMPD4 (this is a unknown) contributed a lot for Loading 2. 
+% We can see that THCA contributed a lot for loading 1 and CMPD4 (this is an unknown) contributed a lot for Loading 2. 
 
-We compared that 
+% We compared that 
 
-{Figure 2. Correlation plot of all substances with >0.8 or <-0.8 highlighted}
+\captionof{figure}{Figure 2. Correlation plot of all substances with $>0.8$ or $<-0.8$ highlighted}
 \centering
-\includegraphics[wdith=\textwidth]{output2.png}
+\includegraphics[width=0.7\textwidth]{output2.png}
+% kouke erduo zheli typo meiyou s chucuol 
 
-{Figure 3. PCA Score Plot}
-\includegraphics[scale=0.1]{pca_score2d_1_dpi300.png}
-{Figure 4. PCA Loading Plot}
-\includegraphics[scale=0.1]{pca_loading_0_dpi300.png}
-{Figure 5}
-\centering
-\includegraphics{PC1.png}
-{Figure 6}
-\centering
-\includegraphics{PC2.png}
+\captionof{figure}{ PCA Score Plot}
+\includegraphics[width=0.7\textwidth]{pca_score2d_1_dpi300.png}
+\captionof{figure}{ PCA Loading Plot}
+\includegraphics[width=0.7\textwidth]{pca_loading_0_dpi300.png}
+\captionof{figure}{}
+\includegraphics[width=0.7\textwidth]{PC1.png}
+\captionof{figure}{}
+\includegraphics[width=0.7\textwidth]{PC2.png}
 
 
 
