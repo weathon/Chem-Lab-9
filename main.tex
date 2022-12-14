@@ -47,13 +47,14 @@ Code and raw \LaTeX \; of this lab report can be found on \url{https://github.co
 \section*{Abstract}
 
 Cannabis markets are increasing \cite{Lab Manuel} in both Canada and the US.   In this paper, we analyzed the data set from the publication  \cite{dataset1} and \cite{dataset2} using various methods. This dataset contains the composition of 12 cannabis strains using HPLC-UV. \cite{Lab Manuel, dataset1, dataset2} We first did an ANOVA of different substances in different strains. 
-We then used metaboanalyst.ca to do the Pearson Correlation on the dataset. Then we used Python to analyze the dataset using PCA and SAM. In ANOVA, most of the tests show a p-value less than 0.05,  We find that THCA contributed a lot for loading 1 and CMPD4 (this is an unknown) contributed a lot for Loading 2 in PCA. In the correlation analyze, we find that there are a few substances that are positively correlated to others, and we find no string of negative correlations in this analysis. This means these 2 compounds are important in cluster cannabis. 
+We then used metaboanalyst.ca to do the Pearson Correlation on the dataset. Then we used Python to analyze the dataset using PCA and SAM. In ANOVA, most of the tests show a p-value less than 0.05,  We find that THCA contributed a lot for loading 1 and CMPD4 (this is an unknown) contributed a lot for Loading 2 in PCA. In the correlation analysis, we find that there are a few substances that are positively correlated to others, and we find no string of negative correlations in this analysis. This means these 2 compounds are important in cluster cannabis. 
 
 
 \textbf{Keywords: } Cannabis, Statistical Analysis, Dataset, Significance Analysis of Microarrays, Principal Component Analysis
+\newpageye
 \section{Introduction}
 Cannabis markets are increasing \cite{Lab Manuel} in both Canada and the US. The legal market in North America in 2021 is USD 12.4 billion, and this is rising. \cite{Market} Thus, understanding the composition of these is important for health professionals, governments, and consumers. HPLC (High-Performance Liquid Chromoptaphhy) is a method used to separate mixtures, and UV detection is commonly used to detect the  substances from HPLC in time serials. This data can then be converted to the concentration of each substance in the original sample. The correlation matrix is a method used to analyze if there are linear correlations between variables between a set of variables. PCA was commonly used to reduce the dimension of the data while keeping as much information as possible. It uses the singular vectors of the matrix. \cite{PCA} In a set of information, the higher the entropy, the more information it has. \cite{info} In the dataset, the higher the variance, the more information it contains. PCA is a linear transformation, by which the data scaler projection with the greatest variance will lie on the first dimension. \cite{PCA} In this paper, we analyzed the data using ANOVA, Coorelatonn, PCA (Principal Component Analysis), and SAM (Significance Analysis of Microarrays) \cite{SAM} on a dataset containing substances from 12 cannabis strains using HPLC-UV. \cite{dataset1} and \cite{dataset2}. \\
-Understanding the substances in cannabis is important for the government to make policies, for consumers to understand the potential health effects, and for medical workers and researchers to understand the public health related to cannabis products. In this paper, we will process the data and find out if each substance is present in different amounts in different classes of cannabis, if some substances are present along with other substances and if some will inhibit the presence of other substances, cluster different class using PCA, and "to reduce data complexity and identify key metabolites that are significant in sample classification." \cite{Lab Manuel}
+Understanding the substances in cannabis is important for the government to make policies, for consumers to understand the potential health effects, and for medical workers and researchers to understand the public health related to cannabis products. In this paper, we will process the data and find out if each substance is present in different amounts in different classes of cannabis, if some substances are present along with other substances, and if some will inhibit the presence of other substances, cluster different class using PCA, and "to reduce data complexity and identify key metabolites that are significant in sample classification." \cite{Lab Manuel}
 
 
 \includepdf[scale=0.8, offset=0 -2cm, pagecommand=\section{Materials and Methods} These process are based on \cite{Lab Manuel}. We converted the Excel file into a CSV file.]{main.pdf}
@@ -108,29 +109,36 @@ All the code was finished on getpod.io using the following parameter:
 
 \section{Result}
 
-\captionof{figure}{Correlation plot of all substances}
 \centering
 \includegraphics[width=0.7\textwidth]{output.png}
+\captionof{figure}{Correlation plot of all substances}
 
 % We can see that THCA contributed a lot for loading 1 and CMPD4 (this is an unknown) contributed a lot for Loading 2. 
 
 % We compared that 
-
-\captionof{figure}{Figure 2. Correlation plot of all substances with $>0.8$ or $<-0.8$ highlighted}
+\\
 \centering
 \includegraphics[width=0.7\textwidth]{output2.png}
-% kouke erduo zheli typo meiyou s chucuol 
+\captionof{figure}{Figure 2. Correlation plot of all substances with $>0.8$ or $<-0.8$ highlighted}
 
-\captionof{figure}{ PCA Score Plot}
 \includegraphics[width=0.7\textwidth]{pca_score2d_1_dpi300.png}
-\captionof{figure}{ PCA Loading Plot}
+\captionof{figure}{ PCA Score Plot}
+
 \includegraphics[width=0.7\textwidth]{pca_loading_0_dpi300.png}
-\captionof{figure}{}
+\captionof{figure}{ PCA Loading Plot}
 \includegraphics[width=0.7\textwidth]{PC1.png}
 \captionof{figure}{}
+
 \includegraphics[width=0.7\textwidth]{PC2.png}
+\captionof{figure}{}
 
 
+\raggedright
+
+
+We can see that THCA contributed a lot for loading 1 and CMPD4 (this is an unknown) contributed a lot for Loading 2. 
+
+We compared that 
 
 \section{Discussion}
 
