@@ -69,7 +69,7 @@ We used MetaboanAlyst for the rest of the data analytics.  We used the same data
     In the statistical analysis model, we selected correlation. Then the website crashed. When I tried to reconnect, it said connection refused. It did go back for a while, but because of the unstableness, we moved on to using Python to do these analytics. 
      We load the data into the Pandas data frame, since correlation is independent then normalization, we don't need to normalize our data in this step.
     % then we calculate the mean and standard deviation, using which we normalized the data. 
-    \item We replaced all missing values with 0s and removed all columns with only 0
+     We replaced all missing values with 0s and removed all columns with only 0
     \item We got the correlation matrix using the built-in function as shown in \cite{pandaCo}, and we plotted the matrix using a heat map, as shown in figure 1.
     \item We then highlighted the substances with high correlation ($p>0.8$ for positive correlation and $p<0.8$ for negative correlation), as shown in figure 2.
     
@@ -82,20 +82,20 @@ We used MetaboanAlyst for the rest of the data analytics.  We used the same data
 \subsection*{Principal Component Analysis}
 (The website is working again, so this part is done using the website)
 \begin{enumerate}
-    \item We normalized the data, then in the stat section, we selected PCA with 2 PC.
-    \item We generated the 2D Scores Plot (Fig 3) and loading plot (Fig 4)
-    \item We downloaded the loading data as CSV and then plotted 2 bar plots using Python. (Fig 5 and 6)
-    \item We then analyze the plots and analyzing is in the Result section. 
+     We normalized the data, then in the stat section, we selected PCA with 2 PC.
+     We generated the 2D Scores Plot (Fig 3) and loading plot (Fig 4)
+     We downloaded the loading data as CSV and then plotted 2 bar plots using Python. (Fig 5 and 6)
+   item We then analyze the plots and analyzing is in the Result section. 
 \end{enumerate}
 
 
 \subsection*{SAM}
 \begin{enumerate}
-    \item We selected the SAM in the stat section
-    \item We increased the delta value so that the False number is 0
-    \item We saved the figure as Fig 6
-    \item We then downloaded the CSV file of significant metabolites
-    \item We compared the result from SAM with ANOVA, the analysis is in the Result section
+     We selected the SAM in the stat section
+     We increased the delta value so that the False number is 0
+     We saved the figure as Fig 6
+     We then downloaded the CSV file of significant metabolites
+     We compared the result from SAM with ANOVA, the analysis is in the Result section
 \end{enumerate}
 
 \subsection*{Envirement for The code} 
