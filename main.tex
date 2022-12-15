@@ -63,11 +63,11 @@ We used MetaboanAlyst for the rest of the data analytics.  We used the same data
 
 
 \begin{enumerate}
-    \item We uploaded the CSV file to AetaboanAlyst with one var statistical analytics with the data type of concentration and sample of "rows (unpaired)." 
-    \item We then skipped the missing value filling.
-    \item We then normalized the data with "auto-scaling"
-    \item In the statistical analysis model, we selected correlation. Then the website crashed. When I tried to reconnect, it said connection refused. It did go back for a while, but because of the unstableness, we moved on to using Python to do these analytics. 
-    \item We load the data into the Pandas data frame, since correlation is independent then normalization, we don't need to normalize our data in this step.
+    We uploaded the CSV file to AetaboanAlyst with one var statistical analytics with the data type of concentration and sample of "rows (unpaired)." 
+    We then skipped the missing value filling.
+    We then normalized the data with "auto-scaling"
+    In the statistical analysis model, we selected correlation. Then the website crashed. When I tried to reconnect, it said connection refused. It did go back for a while, but because of the unstableness, we moved on to using Python to do these analytics. 
+     We load the data into the Pandas data frame, since correlation is independent then normalization, we don't need to normalize our data in this step.
     % then we calculate the mean and standard deviation, using which we normalized the data. 
     \item We replaced all missing values with 0s and removed all columns with only 0
     \item We got the correlation matrix using the built-in function as shown in \cite{pandaCo}, and we plotted the matrix using a heat map, as shown in figure 1.
@@ -141,14 +141,14 @@ We can see that THCA contributed a lot for loading 1 and CMPD4 (this is an unkno
 We compared the results from SAM and ANOVA. SAM got all p-values as 0. We can assume this is because the p-value is very low. This matches the results from ANOVA. In ANOVA, the only result that is not significant is  for CBN. This is not shown in the SAM results, though. 
 
 \section{Discussion}
-The ANOVA tells us that if substances vary across different cannabis. Since most of the results (besides CBN) have low p-values, that tells us that for most substances, their amount varies across different cannabis.\\
+The ANOVA tells us that substances vary across different cannabis. Since most of the results (besides CBN) have low p-values, that tells us that for most substances, their amount varies across different cannabis.\\
 When classifying cannabis, it might not be enough if we just use THC and CBD, because although they do contribute a lot to PC1, they do not to PC2. \\
-There is also not strong negative correlation between substances.
-It will be interesting to build another classifier or cluster on this dataset. I set up a simple artificial neuron network to classify these products into classes. Since the classes are labeled using THC and CBD, we should remove these when we feed the data into the ANN, otherwise, it is not meant to do so.
-Since we do not have enough data points in the dataset, this part is only for conceptual experiments. A better dataset should be used if this is deployed into production. The code for this ANN can be found on \url{https://colab.research.google.com/drive/1DCSYTwnWz0qP8ZFi5WmxuxOEkLt8_jLw?usp=sharing}.
+There is also no strong negative correlation between substances.\\
+There are also other things we can do on this dataset. It will be interesting to build another classifier or cluster on this dataset. I set up a simple artificial neuron network to classify these products into classes. Since the classes are labeled using THC and CBD, we should remove these when we feed the data into the ANN, otherwise, it is not meant to do so.
+Since we do not have enough data points in the dataset, this part is only for conceptual experiments. A better dataset should be used if this is deployed into production. The code for this ANN can be found on \url{https://colab.research.google.com/drive/1DCSYTwnWz0qP8ZFi5WmxuxOEkLt8_jLw?usp=sharing}.\\
 The ANN did NOT perform well. This is expected because the dataset is too small. However, the kNN algorithm did yields a good result. (Fig 7) A simple kNN algorithm calculated the distance between the query object with all the objects in the dataset (excluding itself). Then the closest k objects will vote for the class of the query object. A more advanced kNN could be using weighted voting or weighting features (using weighted features on nominal data is one of my research projects). I had another paper describing this algorithm. \url{https://www.researchgate.net/publication/360161050_A_Gradient-Descent-Based_k-NN_Algorithm} 
-\includegraphics[width=0.7\textwidth]{download.png}
-\captionof{figure}{}
+\includegraphics[width=0.5\textwidth]{download.png}\\
+\textbf{Figure 7.} Result for a simple kNN classification
 \begin{thebibliography}{9}
 \bibitem{Lab Manuel}
 Adeyemi Adebowale, Julia Solonenka, Stephanie Bishop, Ian Cole, Abisola Kehinde, Elizabeth Mudge, and Susan Murch. ANALYTICAL  CHEMISTRY  LAB MANUAL.
